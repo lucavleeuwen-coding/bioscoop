@@ -1,0 +1,42 @@
+@model IEnumerable<website.Models.Arrangement>
+
+@{ ViewData["Title"] = "Index"; }
+
+<div class="container" style="text-align:center; margin-top:20px;">
+    <h1>Arrangementen</h1>
+    <div class="row">
+        <div class="col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+    <div class="col-12 col-lg-4" style="margin-top:20px;width:25rem;">
+        <div class="card bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header bg-success text-white">@Html.DisplayFor(modelItem => item.Name)</div>
+            <div class="card-body">
+                <div style="height: 125px"> b 
+                    <p class="card-title font-weight-bold">@Html.DisplayFor(modelItem => item.Description)</p>
+                    <p class="card-text">€ @Html.DisplayFor(modelItem => item.Price)</p>
+                </div>
+                <div>
+                    <p class="card-title font-weight-bold">Snacks</p>
+                <select class="custom-select custom-select-sm">
+                    <option selected>Kies</option>
+                    <option value="1">@Html.DisplayFor(modelItem => item.Snack.Name)</option>
+                    <option value="2">@Html.DisplayFor(modelItem => item.Snack.Name)</option>
+                    <option value="3">@Html.DisplayFor(modelItem => item.Snack.Name)</option>
+                </select>
+                                </div>
+
+                <p>
+                </p>
+            </div>
+            <form>
+                <button class="btn btn-light" style="margin-bottom:15px; width:5rem;" asp-area="" asp-controller="Checkout" asp-action="Index">Kies</button>
+            </form>
+        </div> 
+
+    </div>}
+            </div>
+        </div>
+    </div>
+</div>

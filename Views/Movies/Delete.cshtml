@@ -1,0 +1,25 @@
+@model website.Models.Movie
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="container" style="margin-top:5rem;">
+    <h2>@Html.DisplayFor(model => model.Name)</h2>
+    <div>
+        <h5>Weet je zeker dat je @Html.DisplayFor(model => model.Name) wilt verwijderen ?</h5>
+        <div class="card bg-light mb-3" style="max-width: 50rem;">
+            <div class="card-header">@Html.DisplayFor(model => model.Name)</div>
+            <div class="card-body">
+                <p class="card-text">Beschrijving</p>
+                <small>@Html.DisplayFor(model => model.Description)</small>
+                <div class="card-footer bg-transparent border-success">
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr />
+    </div>
+</div>
